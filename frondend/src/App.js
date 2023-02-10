@@ -21,8 +21,8 @@ function App() {
       summary : 'test',
       description : 'test description',
       location : 'test localtion',
-      startDateTime : '2023-02-10 05:00:00',
-      endDateTime : '2023-02-10 06:00:00',
+      startDateTime : '2023-02-10 11:00:00',
+      endDateTime : '2023-02-10 12:00:00',
     };
     axios.post('http://localhost:4000/api/create-event',data).then(res => {
       console.log(res,'ressss');

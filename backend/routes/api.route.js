@@ -129,4 +129,24 @@ router.get('/list-event', async (req, res, next) => {
   // res.send({ message: 'Ok api is working 🚀' });
 });
 
+
+router.get('/delete-event', async (req, res, next) => {
+
+  try {
+    oauth2Client.setCredentials({refresh_token : REFRESH_TOKENS});
+    const calendar = google.calendar('v3');
+    const response = await calendar.events.delete({
+      auth: oauth2Client,
+      calendarId : 'primary',
+      eventId : "a1p4m2jlas6lrflsi1gsb5rau4"
+    });
+
+    res.send(response)
+  }catch (error){
+    console.log(error,'error')
+    next(error)
+  }
+  // res.send({ message: 'Ok api is working 🚀' });
+});
+
 module.exports = router;
